@@ -1,0 +1,105 @@
+:root {
+  --bg1: #0f172a;
+  --bg2: #312e81;
+  --bg3: #831843;
+  --text: #f8fafc;
+  --muted: #cbd5e1;
+  --glass: rgba(255, 255, 255, 0.09);
+  --glass-hover: rgba(255, 255, 255, 0.18);
+  --border: rgba(255, 255, 255, 0.18);
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; min-height: 100%; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: linear-gradient(135deg, var(--bg1), var(--bg2) 55%, var(--bg3));
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 48px 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+
+.avatar {
+  width: 148px;
+  height: 148px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #f472b6, #818cf8);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border: 3px solid var(--bg1);
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  letter-spacing: 0.01em;
+}
+
+.tagline {
+  margin: 6px 0 32px;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.link svg { width: 24px; height: 24px; flex: none; }
+.link span { flex: 1; text-align: left; }
+.link .arrow { width: 18px; height: 18px; opacity: 0.6; transition: transform 0.15s ease; }
+
+.link:hover,
+.link:focus-visible {
+  background: var(--glass-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
+  outline: none;
+}
+
+.link:hover .arrow { transform: translateX(3px); opacity: 1; }
+.link:focus-visible { box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.6); }
+
+@media (prefers-reduced-motion: reduce) {
+  .link, .link .arrow { transition: none; }
+}
